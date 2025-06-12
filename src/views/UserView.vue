@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type User from '../interfaces'
+import type { User } from '../interfaces'
 import { getUsers } from '@/api/users'
 import { ref, type Ref } from 'vue'
-
-
 
 const users: Ref<User[]> = ref([])
 
