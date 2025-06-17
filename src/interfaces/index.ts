@@ -1,6 +1,13 @@
+export interface UserBase {
+  username: string
+}
+
 export interface User {
   id: number
-  username: string
+}
+
+export interface UserCreate extends UserBase {
+  password: string
 }
 
 export interface Token {

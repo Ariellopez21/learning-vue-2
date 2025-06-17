@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import UserView from '@/views/UserView.vue'
+import UserView from '@/views/UserList.vue'
 import Login from '@/views/UserLogin.vue'
+import NewUser from '@/views/NewUser.vue'
 import { useAuthStore } from '@/stores/auth'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,11 @@ const router = createRouter({
       name: 'login',
       component: Login,
     },
+    {
+      path: '/users/new',
+      name: 'new-user',
+      component: NewUser,
+    }
   ],
 })
 
