@@ -29,6 +29,7 @@ async function createUser() {
   <DataTable v-if="users.length > 0" :value="users">
     <Column field="id" header="ID" />
     <Column field="username" header="Nombre" />
+    <Column field="isAdmin" header="Administrador" />
   </DataTable>
   </div>
 </template>

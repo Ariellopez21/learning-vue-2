@@ -14,7 +14,7 @@ async function handleLogin() {
     try {
         const token = await login(username.value, password.value);
         console.log('Token:', token);
-        auth.setToken(token.access_token);
+        auth.setToken(token.accessToken);
         router.push({ name: 'home' });
     } catch (error) {
         console.error('Error durante el inicio de sesión:', error);

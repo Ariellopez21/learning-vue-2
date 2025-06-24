@@ -1,5 +1,6 @@
 export interface UserBase {
   username: string
+  isAdmin: boolean
 }
 
 export interface User {
@@ -11,8 +12,8 @@ export interface UserCreate extends UserBase {
 }
 
 export interface Token {
-  access_token: string,
-  token_type: string,
-  refresh_token: string,
-  expires_in: number
+  accessToken: string,
+  tokenType: string,
+  refreshToken: string,
+  expiresIn: number
 }

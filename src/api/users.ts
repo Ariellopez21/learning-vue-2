@@ -12,7 +12,7 @@ export async function createUser(user:UserCreate): Promise<User> {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(user),
+    body: user,
   })
   
 }

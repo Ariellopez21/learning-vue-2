@@ -1,5 +1,7 @@
 import { useAuthStore } from "@/stores/auth";
 
+import * as changeKeys from "change-case/keys";
+
 export const BASE_URL = 'http://localhost:8000'
 
 export async function apiFetch<T>(endpoint:string, options: RequestInit = {}): Promise<T> {
@@ -11,6 +13,10 @@ export async function apiFetch<T>(endpoint:string, options: RequestInit = {}): P
             ...headers
         };
     }
+
+    if (!headers.hasOwnProperty('Content-Type') && headers['Content-Type'] !== 'application/json') {
+        options.body = JSON.stringify(changeKeys.snakeCase(options.body, 5));
+    }
     const response = await fetch(`${BASE_URL}${endpoint}`, {
         ...options,
         headers,
@@ -19,7 +25,7 @@ export async function apiFetch<T>(endpoint:string, options: RequestInit = {}): P
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    return response.json();
+    const jsonResponse = await response.json();
+    return changeKeys.camelCase(jsonResponse, 5) as T;
     
 }
